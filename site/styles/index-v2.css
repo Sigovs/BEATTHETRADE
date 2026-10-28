@@ -381,19 +381,23 @@ a,button,summary,input,select{touch-action:manipulation;-webkit-tap-highlight-co
 .ui-tag--r1{left:71%;top:36%}
 .ui-tag--l2{left:6%;top:59%}
 .step__rule{display:flex;align-items:center;gap:var(--s3);align-self:stretch;height:20px;margin:var(--s6) 0 var(--s5)}
-.step__rule::after{content:"";flex:1;height:1px;background:#CCD1D8;transform-origin:0 50%;transform:scaleX(var(--r,1))}
+.step__rule::after{content:"";flex:1;height:1px;background:#CCD1D8;transform-origin:0 50%;transform:scaleX(var(--r,1));transition:background 500ms var(--ease)}
 .step__mark{flex:none;width:22px;height:16px;background:var(--green-deep);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M2 2l10 9-10 9' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 22'%3E%3Cpath d='M2 2l10 9-10 9' fill='none' stroke='%23000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform 500ms var(--e-out)}
 .step h3{font-size:var(--t-m);font-family:var(--fd);font-weight:760;letter-spacing:-.03em;line-height:1.05}
 .step p{margin-top:var(--s3);font-size:var(--t-md);color:var(--ink-2);max-width:32ch}
 .step__chip{margin-top:var(--s5);padding-top:var(--s2);border-top:1.5px solid var(--green);font-size:var(--t-xs);font-weight:700;color:var(--green-deep)}
 /* hover: the photo leans in, the product moment lifts, the number wakes up, the marker steps forward */
 @media (any-hover:hover){
-  .step:hover .step__ph img{transform:scale(1.06)}
-  .step:hover .ui{transform:translateY(-6px);box-shadow:0 4cqi 10cqi rgba(11,27,48,.22)}
-  .step:hover .ui-tag{transform:translateY(-5px)}
-  .step:hover .ui-tag--top{transform:translate(-50%,-6px)}
-  .step:hover .step__n{color:#D3D8DF}
-  .step:hover .step__mark{transform:translateX(6px)}
+  .step{cursor:default}
+  .step__vis{transition:transform 600ms var(--e-out)}
+  .step:hover .step__vis{transform:translateY(-10px)}
+  .step:hover .step__ph img{transform:scale(1.12)}
+  .step:hover .ui{transform:translateY(-12px);box-shadow:0 6cqi 14cqi rgba(11,27,48,.28)}
+  .step:hover .ui-tag{transform:translateY(-8px)}
+  .step:hover .ui-tag--top{transform:translate(-50%,-10px)}
+  .step:hover .step__n{color:#C3CAD3}
+  .step:hover .step__rule::after{background:var(--green)}
+  .step:hover .step__mark{transform:translateX(10px)}
 }
 
 /* ---------- 4 · results ---------- */
