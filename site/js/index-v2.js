@@ -68,6 +68,21 @@
     onScroll();
   }
 
+  /* ---------- 3c · reviews carousel: native swipe + snap; buttons and dots move one card ---------- */
+  $$('[data-carousel]').forEach(function(c){
+    var sec=c.closest('section'), tr=$('.reviews__track',c), cards=$$('.rcard',tr), prev=$('[data-rprev]',sec), next=$('[data-rnext]',sec), dots=$('[data-dots]',sec), raf=0;
+    var dotEls=cards.map(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='rdot'; b.setAttribute('aria-label','Show review '+(i+1)); b.addEventListener('click',function(){go(i)}); dots.appendChild(b); return b });
+    function at(){ var x=tr.scrollLeft, best=0, d=1e9; cards.forEach(function(cd,i){ var dd=Math.abs(cd.offsetLeft-x); if(dd<d){d=dd;best=i} }); return best }
+    function go(i){ i=Math.max(0,Math.min(cards.length-1,i)); tr.scrollTo({left:cards[i].offsetLeft,behavior:reduce.matches?'auto':'smooth'}) }
+    function paint(){ raf=0; var end=tr.scrollLeft>=tr.scrollWidth-tr.clientWidth-2, i=end?cards.length-1:at();
+      dotEls.forEach(function(b,k){ b.setAttribute('aria-current',String(k===i)) });
+      if(prev) prev.disabled=tr.scrollLeft<=2; if(next) next.disabled=end }
+    if(prev) prev.addEventListener('click',function(){ go(at()-1) });
+    if(next) next.addEventListener('click',function(){ go(at()+1) });
+    tr.addEventListener('scroll',function(){ if(!raf) raf=requestAnimationFrame(paint) },{passive:true});
+    window.addEventListener('resize',paint); paint();
+  });
+
   /* ---------- 4 · the phone: the example auction in four chapters, in step with the text ----------
      0 list the car and set the minimum · 1 the auction opens, two bids · 2 $22,600 meets the reserve · 3 $23,800 wins.
      Wide screens: each text chapter plays its step as it arrives (Ph.go). Phones: the steps play in a loop while on screen.
@@ -274,10 +289,9 @@
     once('.tape','top 85%').from($$('.tape li'),{x:64,opacity:0,duration:1,stagger:.12,ease:'expo.out',clearProps:'transform,opacity'});
 
     /* the quote rises line by line out of its masks; the figures follow */
-    var q=once('.pull','top 78%');
-    rise(q,$('.pull blockquote p'),0,1.2,.09);
-    q.from($$('.pull figcaption>*'),Object.assign({},lift,{stagger:.12}),.6);
-    once('.minis','top 85%').from($$('.minis li'),Object.assign({},lift,{stagger:.14}));
+    /* the review cards come in one after another from the side */
+    once('.reviews','top 82%').from($$('.rcard'),{x:80,opacity:0,duration:1.2,ease:'power3.out',stagger:.14,clearProps:'transform,opacity'})
+      .from($$('.rnav__b, .rdots'),{opacity:0,duration:.8,ease:'power2.out',stagger:.08,clearProps:'opacity'},.3);
 
     once('.faq__r','top 85%').from($$('.faq details'),Object.assign({},lift,{stagger:.08}));
 

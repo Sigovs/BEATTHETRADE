@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500..900&family=Inter:wght@400..800&display=swap">
-<link rel="stylesheet" href="styles/index-v2.css?v=20261028f">
+<link rel="stylesheet" href="styles/index-v2.css?v=20261028h">
 </head>
 <body>
 <a class="skip" href="#v2-id">Skip to the form</a>
@@ -251,16 +251,31 @@
 
   <!-- 5 · one voice, two echoes -->
   <section class="say" aria-labelledby="sl-h">
-    <h2 id="sl-h" class="t-m" data-lines>Sellers who skipped the trade-in.</h2>
-    <figure class="pull">
-      <blockquote><p data-lines>Dealer offered me $18k on trade. Final auction bid was $22,400. I watched the bids land in real time on my phone.</p></blockquote>
-      <figcaption><span class="who"><b>Marcus T.</b>2021 Tacoma TRD</span><span class="gain"><b class="num">+$4,400</b>over trade-in</span></figcaption>
-    </figure>
-    <ul class="minis">
-      <li><blockquote><p>Never set foot in a dealership. Three dealers were within $300 of each other by the end. Pickup was 24 hours later.</p></blockquote><p class="by"><span class="who"><b>Priya S.</b>2019 Civic Si</span><span class="gain"><b class="num">+$2,100</b>over trade-in</span></p></li>
-      <li><blockquote><p>Sold from my couch in pajamas. The dealer handled the title, the payment, and the pickup.</p></blockquote><p class="by"><span class="who"><b>Taylor R.</b>2021 Bronco Sport</span><span class="gain"><b class="num">+$2,400</b>over trade-in</span></p></li>
-    </ul>
-    <p class="foot">Testimonials as published on beatthetrade.com.</p>
+    <div class="say__head">
+      <h2 id="sl-h" class="t-m" data-lines>Sellers who skipped the trade-in.</h2>
+      <div class="rnav"><button class="rnav__b" type="button" data-rprev aria-label="Previous review">&larr;</button><button class="rnav__b" type="button" data-rnext aria-label="Next review">&rarr;</button></div>
+    </div>
+    <!-- the three testimonials from beatthetrade.com as a swipeable row of cards -->
+    <div class="reviews" data-carousel>
+      <ul class="reviews__track" aria-label="Seller reviews" tabindex="0">
+        <li class="rcard">
+          <span class="rcard__q" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>Dealer offered me $18k on trade. Final auction bid was $22,400. I watched the bids land in real time on my phone.</p></blockquote>
+          <div class="rcard__by"><span class="who"><b>Marcus T.</b>2021 Tacoma TRD</span><span class="gain"><b class="num">+$4,400</b>over trade-in</span></div>
+        </li>
+        <li class="rcard">
+          <span class="rcard__q" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>Never set foot in a dealership. Three dealers were within $300 of each other by the end. Pickup was 24 hours later.</p></blockquote>
+          <div class="rcard__by"><span class="who"><b>Priya S.</b>2019 Civic Si</span><span class="gain"><b class="num">+$2,100</b>over trade-in</span></div>
+        </li>
+        <li class="rcard">
+          <span class="rcard__q" aria-hidden="true">&ldquo;</span>
+          <blockquote><p>Sold from my couch in pajamas. The dealer handled the title, the payment, and the pickup.</p></blockquote>
+          <div class="rcard__by"><span class="who"><b>Taylor R.</b>2021 Bronco Sport</span><span class="gain"><b class="num">+$2,400</b>over trade-in</span></div>
+        </li>
+      </ul>
+    </div>
+    <div class="say__foot"><div class="rdots" data-dots></div><p class="foot">Testimonials as published on beatthetrade.com.</p></div>
   </section>
 
   <!-- 6 · questions -->
@@ -307,6 +322,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/index-v2.js?v=20261028f"></script>
+<script src="js/index-v2.js?v=20261028h"></script>
 </body>
 </html>
