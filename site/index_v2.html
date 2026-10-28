@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500..900&family=Inter:wght@400..800&display=swap">
-<link rel="stylesheet" href="styles/index-v2.css?v=20261028b">
+<link rel="stylesheet" href="styles/index-v2.css?v=20261028c">
 </head>
 <body>
 <a class="skip" href="#v2-id">Skip to the form</a>
@@ -156,19 +156,71 @@
 
   <!-- 3 · the lane: four stops, one direction -->
   <section class="how" id="how" aria-labelledby="how-h">
+    <!-- the photo shape of each step: a slanted card with soft corners (objectBoundingBox, so it fits any size) -->
+    <svg class="vh" width="0" height="0" aria-hidden="true" focusable="false"><clipPath id="step-clip" clipPathUnits="objectBoundingBox"><path d="M.478 0H.972Q1 0 .993.034L.79.962Q.782 1 .752 1H.03Q0 1 .012.968L.452.02Q.462 0 .478 0Z"/></clipPath></svg>
     <div class="how__head">
-      <h2 id="how-h" class="t-l" data-lines>How it works</h2>
+      <div class="how__title">
+        <p class="kicker">A simple process</p>
+        <h2 id="how-h" class="t-l" data-lines>How it <span class="hl">works</span></h2>
+      </div>
       <a class="link" href="https://www.beatthetrade.com/how-it-works">See the full process <span aria-hidden="true">→</span></a>
     </div>
-    <div class="lane">
-      <span class="lane__rail" aria-hidden="true"></span>
-      <ol class="lane__stops">
-        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">01</span><h3>List your car</h3><p>Enter your license plate or VIN and a few quick details. Takes <span class="nw">5–10 minutes</span>.</p></li>
-        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">02</span><h3>Set your minimum</h3><p>The lowest price you'll accept. Only you see it. If bidding doesn't reach it, your car doesn't sell.</p></li>
-        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">03</span><h3>Dealers bid live</h3><p>100+ verified local dealers compete in a 4-hour online auction.</p><span class="lane__chip">Weekdays · 1:00–5:00 PM ET</span></li>
-        <li><i class="lane__mark lane__mark--end chev" aria-hidden="true"></i><span class="lane__n num">04</span><h3>Top bid wins</h3><p>The highest bid above your minimum wins. The dealer pays you, then picks up the car.</p><span class="lane__chip">We connect you with the winning dealer</span></li>
-      </ol>
-    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="step__vis" aria-hidden="true">
+          <span class="step__n num">01</span>
+          <div class="step__ph"><img src="assets/v2/how-1.webp" alt="" width="1000" height="747" loading="lazy"></div>
+          <div class="ui ui--form">
+            <span class="ui-tabs"><b>License plate</b><span>VIN</span></span>
+            <span class="ui-row"><span class="ui-sel">MA <i></i></span><span class="ui-inp">LICENSE PLATE</span></span>
+            <span class="ui-btn">Start my auction →</span>
+          </div>
+        </div>
+        <span class="step__rule"><i class="step__mark step__mark--up"></i></span>
+        <h3>List your car</h3>
+        <p>Enter your license plate or VIN and a few quick details. Takes <span class="nw">5–10 minutes</span>.</p>
+      </li>
+      <li class="step">
+        <div class="step__vis" aria-hidden="true">
+          <span class="step__n num">02</span>
+          <div class="step__ph"><img src="assets/v2/how-2.webp" alt="" width="1000" height="747" loading="lazy"></div>
+          <div class="ui ui--min">
+            <span class="ui-k">Your minimum</span>
+            <b class="ui-v num">$22,500</b>
+            <span class="ui-trk"><i></i></span>
+            <span class="ui-ends num"><span>$20,000</span><span>$24,000</span></span>
+          </div>
+        </div>
+        <span class="step__rule"><i class="step__mark"></i></span>
+        <h3>Set your minimum</h3>
+        <p>The lowest price you'll accept. Only you see it. If bidding doesn't reach it, your car doesn't sell.</p>
+      </li>
+      <li class="step">
+        <div class="step__vis" aria-hidden="true">
+          <span class="step__n num">03</span>
+          <div class="step__ph"><img src="assets/v2/how-3.webp" alt="" width="1000" height="747" loading="lazy"></div>
+          <!-- the four bids of the site's example auction -->
+          <span class="ui-tag ui-tag--top"><b class="num">$23,800</b><small>from local dealer</small></span>
+          <span class="ui-tag ui-tag--l1"><b class="num">$22,400</b><small>from local dealer</small></span>
+          <span class="ui-tag ui-tag--r1"><b class="num">$22,600</b><small>from local dealer</small></span>
+          <span class="ui-tag ui-tag--l2"><b class="num">$21,550</b><small>from local dealer</small></span>
+        </div>
+        <span class="step__rule"><i class="step__mark"></i></span>
+        <h3>Dealers bid live</h3>
+        <p>100+ verified local dealers compete in a 4-hour online auction.</p>
+        <span class="step__chip">Weekdays · 1:00–5:00 PM ET</span>
+      </li>
+      <li class="step">
+        <div class="step__vis" aria-hidden="true">
+          <span class="step__n num">04</span>
+          <div class="step__ph"><img src="assets/v2/how-4.webp" alt="" width="1000" height="747" loading="lazy"></div>
+        </div>
+        <span class="step__rule"><i class="step__mark"></i></span>
+        <h3>Top bid wins</h3>
+        <p>The highest bid above your minimum wins. The dealer pays you, then picks up the car.</p>
+        <span class="step__chip">We connect you with the winning dealer</span>
+      </li>
+    </ol>
   </section>
 
   <!-- 4 · results: one featured auction, then the tape -->
@@ -255,6 +307,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/index-v2.js?v=20261028b"></script>
+<script src="js/index-v2.js?v=20261028c"></script>
 </body>
 </html>

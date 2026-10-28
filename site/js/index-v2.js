@@ -246,17 +246,22 @@
         onLeaveBack:function(){ if(n===0) Ph.go(-1) }});
     });
 
-    /* the lane draws left to right; each stop arrives as the line reaches it */
-    var how=once('.how','top 72%');
-    rise(how,$('.how h2'),0);
-    how.from('.how__head .link',lift,.3);
-    if(wide){
-      how.fromTo('.lane__rail',{scaleX:0},{scaleX:1,duration:1.6,ease:'power2.inOut'},.35)
-         .from($$('.lane__mark'),{scale:0,duration:.6,stagger:.4,ease:'back.out(2)',clearProps:'transform'},.45)
-         .from($$('.lane__stops li>:not(.lane__mark)'),Object.assign({},lift,{stagger:.1}),.55);
-    } else {
-      $$('.lane__stops li').forEach(function(li){ once(li,'top 85%').from(li.children,Object.assign({},lift,{stagger:.08})) });
-    }
+    /* how it works: the head rises; then, step after step, the number lifts, the photo opens from its slanted edge,
+       the product moment pops on with a small bounce, the rule draws and the copy slides in */
+    var how=once('.how','top 75%');
+    how.from('.how .kicker',lift,0);
+    rise(how,$('.how h2'),.05);
+    how.from('.how__head .link',Object.assign({},lift,{x:40}),.3);
+    $$('.step').forEach(function(st,i){
+      var t=once(st,'top 85%'), d=wide?i*.14:0;
+      t.from($('.step__n',st),{yPercent:40,opacity:0,duration:1.1,ease:'power3.out',clearProps:'transform,opacity'},d)
+       .from($('.step__ph',st),{xPercent:-10,opacity:0,duration:1.2,ease:'power3.out',clearProps:'transform,opacity'},d+.08)
+       .from($('.step__ph img',st),{scale:1.18,duration:1.8,ease:'expo.out',clearProps:'transform'},d+.08)
+       .from($('.step__mark',st),{x:-12,opacity:0,duration:.7,ease:'power3.out',clearProps:'transform,opacity'},d+.5)
+       .fromTo(st.querySelector('.step__rule'),{'--r':0},{'--r':1,duration:1,ease:'power2.inOut'},d+.5)
+       .from($$('h3, p, .step__chip',st),Object.assign({},lift,{stagger:.1}),d+.6);
+      var ui=$$('.ui, .ui-tag',st); if(ui.length) t.from(ui,{y:22,opacity:0,scale:.92,duration:.9,ease:'back.out(1.7)',stagger:.08,clearProps:'transform,opacity'},d+.55);
+    });
 
     /* results: the featured photo wipes open from the side the bids come from; the tape lands row by row */
     var rs=once('.res','top 72%');
