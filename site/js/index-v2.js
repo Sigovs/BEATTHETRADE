@@ -199,7 +199,8 @@
       return L2;
     }
     function rise(tl,el,at,dur,gap){ lines(el).forEach(function(ln,i){ tl.from(ln,{yPercent:112,duration:dur||1.4,ease:'power3.out'},at+i*(gap||.13)) }) }
-    var lift={y:28,opacity:0,duration:1.1,ease:'power2.out',clearProps:'transform,opacity'};
+    /* supporting text slides in from the side, one line after another (a staircase), once per block */
+    var lift={x:-64,opacity:0,duration:1.2,ease:'power3.out',clearProps:'transform,opacity'};
     /* plays once. Not once:true: a trigger that kills itself during a refresh (page restored mid-scroll) breaks the others */
     var once=function(trigger,start){return gsap.timeline({scrollTrigger:{trigger:trigger,start:start||'top 80%',toggleActions:'play none none none'}})};
 
@@ -208,8 +209,8 @@
     it.from($$('.bar>*'),{y:-12,opacity:0,duration:.8,stagger:.06,ease:'power2.out',clearProps:'transform,opacity'},0);
     it.from('.hero__kicker',{y:12,opacity:0,duration:.9,ease:'power2.out',clearProps:'transform,opacity'},.05);
     rise(it,$('.hero__title'),.12,1.5,.15);
-    it.from($$('.hero__deck>*'),Object.assign({},lift,{stagger:.12}),.6)
-      .from($$('.assure li'),Object.assign({},lift,{y:16,stagger:.08}),.8)
+    it.from($$('.hero__deck>*'),Object.assign({},lift,{x:64,stagger:.14}),.6)
+      .from($$('.assure li'),Object.assign({},lift,{stagger:.12}),.8)
       .from('.hero__chev, .hero__window',{y:40,opacity:0,duration:1.6,ease:'expo.out',clearProps:'transform,opacity'},.2)
       .from('.hero__window img',{scale:1.12,duration:2.4,ease:'expo.out',clearProps:'transform'},.2)
       .from('.hero__car',{xPercent:14,opacity:0,duration:1.6,ease:'power3.out',clearProps:'transform,opacity'},.55);
@@ -222,10 +223,10 @@
     var mk=$('.mk'), chs=$$('.mk .ch');
     if(wide&&Ph){ mk.classList.add('is-sync'); Ph.draw(-1) }
     chs.forEach(function(ch){
-      var n=+ch.dataset.step, h=$('h2',ch), b=$$('.ch__p, .ch__k, .xlist li, .vlist li, .ch__win, .ch__foot, .link',ch);
+      var n=+ch.dataset.step, h=$('h2',ch), b=$$('.ch__p, .ch__k, .xlist li, .vlist li, .ch__win>*, .ch__foot, .link',ch);
       var t=gsap.timeline({paused:true}), shown=false;
       if(h) rise(t,h,0,1.3,.13);
-      if(b.length) t.from(b,{y:56,opacity:0,duration:1.2,ease:'power3.out',stagger:.09,clearProps:'transform,opacity'},h?.25:0);
+      if(b.length) t.from(b,{x:-80,opacity:0,duration:1.2,ease:'power3.out',stagger:.13,clearProps:'transform,opacity'},h?.25:0);
       var reveal=function(){ if(!shown){ shown=true; t.play() } };
       ScrollTrigger.create({trigger:ch,start:'top 78%',onEnter:reveal});
       if(wide&&Ph) ScrollTrigger.create({trigger:ch,start:'top 55%',end:'bottom 55%',
@@ -261,14 +262,16 @@
     q.from($$('.pull figcaption>*'),Object.assign({},lift,{stagger:.12}),.6);
     once('.minis','top 85%').from($$('.minis li'),Object.assign({},lift,{stagger:.14}));
 
-    once('.faq__r','top 85%').from($$('.faq details'),Object.assign({},lift,{y:18,stagger:.06}));
+    once('.faq__r','top 85%').from($$('.faq details'),Object.assign({},lift,{stagger:.08}));
 
     /* the chevron window rises open, the road settles inside it; the button is never held back */
     var cl=once('.close','top 70%');
     rise(cl,$('.close h2'),0,1.5,.15);
     cl.from('.close__sub',lift,.55)
       .fromTo('.chevwin',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:1.6,ease:'expo.out',clearProps:'clipPath'},.15)
-      .from('.chevwin img',{scale:1.18,yPercent:6,duration:2.2,ease:'expo.out',clearProps:'transform'},.15);
+      .from('.chevwin img',{scale:1.18,duration:2.2,ease:'expo.out'},.15);
+    /* the road drifts inside the chevron as the section passes: a slow parallax, tied to scroll */
+    gsap.fromTo('.chevwin img',{yPercent:-7},{yPercent:7,ease:'none',scrollTrigger:{trigger:'.close',start:'top bottom',end:'bottom top',scrub:true}});
 
     /* the last step holds: the market stops on "Sold", the next section slides up over it,
        and the text and the phone rise out to nothing as it covers them */
