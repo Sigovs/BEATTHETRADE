@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Beat The Trade Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500..900&family=Inter:wght@400..800&display=swap">
+<link rel="stylesheet" href="styles/index-v2.css">
+</head>
+<body>
+<a class="skip" href="#v2-id">Skip to the form</a>
+
+<header class="bar">
+  <a class="bar__logo" href="https://www.beatthetrade.com/"><img src="assets/v2/wordmark-ink.png" alt="Beat The Trade" width="252" height="24"></a>
+  <nav class="bar__nav" aria-label="Main"><a href="#how">How it works</a><a href="https://www.beatthetrade.com/auctions">Live auctions</a><a href="#results">Results</a><a href="#faq">FAQs</a></nav>
+  <div class="bar__end"><span class="bar__area">MA &amp; NH</span><a class="bar__signin" href="https://www.beatthetrade.com/">Sign in</a></div>
+</header>
+
+<main>
+  <!-- 1 · the plate: the one thing only the seller has -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero__grid">
+      <div class="hero__head">
+        <p class="hero__kicker">Sell smarter. Locally.</p>
+        <h1 id="h1" class="hero__title" data-lines>Sell your car.<br> Start a <span class="hl nw">bidding war.</span></h1>
+      </div>
+      <div class="hero__deck">
+        <p class="hero__sub">List once. 100+ verified local dealers compete for your car in a live <span class="nw">4-hour</span> auction.</p>
+        <p class="proof"><b class="proof__n num"><i class="chev" aria-hidden="true"></i>+$1,350</b><span>average over trade-in offers for BTT sellers</span></p>
+      </div>
+      <form class="pform" novalidate data-form>
+        <div class="seg" role="group" aria-label="Look up by">
+          <button type="button" aria-pressed="true" data-mode="plate">License plate</button>
+          <button type="button" aria-pressed="false" data-mode="vin">VIN</button>
+        </div>
+        <div class="pform__row">
+          <div class="plate" data-plate>
+            <label class="vh" for="v2-state">State</label>
+            <select class="plate__state" id="v2-state" name="state"><option value="MA">MA</option><option value="NH">NH</option><option value="other">Other</option></select>
+            <label class="vh" for="v2-id">License plate</label>
+            <input class="plate__input" id="v2-id" name="id" autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="go" placeholder="License plate" maxlength="8">
+          </div>
+          <button class="cta" type="submit">Start my auction <span class="cta__arr" aria-hidden="true">→</span></button>
+        </div>
+        <p class="pform__msg" role="status" aria-live="polite"></p>
+        <p class="fine">Next auction: <b data-next>weekdays, 1:00 PM ET</b><span class="fine__sep" aria-hidden="true"></span>MA &amp; NH cars, 1993 and newer</p>
+      </form>
+      <ul class="assure">
+        <li><svg class="assure__i assure__i--g" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5"/><path d="M24 12.5v23M29.2 17.6c-1-1.6-2.9-2.6-5.2-2.6-2.9 0-5.2 1.7-5.2 4.1s2.3 3.5 5.2 4.1 5.2 1.7 5.2 4.2-2.3 4.1-5.2 4.1c-2.4 0-4.4-1-5.4-2.7"/></svg><span><b>100% free</b>No fees to list</span></li>
+        <li><svg class="assure__i" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5"/><path d="M24 14v10.5l7 5"/></svg><span><b class="nw">5–10 minutes</b>to list your car</span></li>
+        <li><svg class="assure__i assure__i--g" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5"/><path d="M16.5 24.8l5.2 5.2 10-10.4"/></svg><span><b>You set the minimum</b>Sells only if it's met</span></li>
+      </ul>
+      <!-- the visual: the BTT chevron as a window onto the road out of town, the car parked in front of it -->
+      <figure class="hero__visual">
+        <div class="hero__window" aria-hidden="true"><img src="assets/v2/hero-lake-1000.webp" srcset="assets/v2/hero-lake-1000.webp 1000w, assets/v2/hero-lake-1800.webp 1800w" sizes="(max-width:900px) 100vw, 60vw" alt="" width="1800" height="1344"></div>
+        <div class="hero__chev" aria-hidden="true"></div>
+        <div class="hero__floor" aria-hidden="true"></div>
+        <div class="hero__car">
+          <img class="hero__ground" src="assets/v2/hero-ground.webp" alt="" width="1185" height="287" aria-hidden="true">
+          <img class="hero__car-img" src="assets/v2/hero-car.webp" alt="A silver compact SUV parked on a terrace above a lake and forested mountains" width="913" height="495" fetchpriority="high">
+        </div>
+        <figcaption class="disclose">Illustrative image</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2 · one offer vs. a live market: the chapters scroll past the phone playing the example auction -->
+  <section class="mk" id="market" aria-labelledby="mk-h">
+    <div class="mk__grid">
+      <div class="mk__story">
+        <article class="ch" data-step="0">
+          <h2 id="mk-h" class="t-l" data-lines>One offer vs. a live market.</h2>
+          <p class="ch__p">A trade-in gives you one dealer's number. We bring 100+ local dealers to compete, and the price goes to you.</p>
+          <h3 class="ch__k">Typical trade-in</h3>
+          <ul class="xlist"><li>One dealer's offer</li><li>Pressure to decide on the spot</li><li>No way to compare</li></ul>
+        </article>
+        <article class="ch" data-step="1">
+          <h3 class="ch__k ch__k--g">Beat The Trade</h3>
+          <ul class="vlist"><li>16 bids from local dealers</li><li>Live, real-time bidding</li><li>Sells only above your minimum</li></ul>
+        </article>
+        <article class="ch" data-step="2">
+          <h2 id="mn-h" class="t-l" data-lines>Your car. <span class="nw">Your minimum.</span></h2>
+          <p class="ch__p">Set the reserve price you're comfortable with. If the top bid doesn't reach it, your car doesn't sell.</p>
+        </article>
+        <article class="ch" data-step="3">
+          <p class="ch__win"><span>Beat The Trade</span><b class="num">$23,800</b><em class="num">+$3,100 more</em></p>
+          <p class="ch__foot">Example auction from beatthetrade.com. Your results will vary. BTT sellers average $1,350 over <span class="nw">trade-in offers.</span></p>
+          <a class="link link--dark" href="https://www.beatthetrade.com/faq">Learn more about reserves <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <!-- the phone from index.html: the real process on one screen, beside the chapters -->
+      <figure class="stage" aria-labelledby="stage-cap">
+        <div class="p-stage">
+          <span class="p-aura" aria-hidden="true"></span>
+          <span class="p-ground" aria-hidden="true"></span>
+          <div class="p-phone" data-tilt tabindex="0" aria-label="Example auction on a phone, following the text beside it.">
+            <span class="p-ly" style="--i:1"></span><span class="p-ly" style="--i:2"></span><span class="p-ly" style="--i:3"></span><span class="p-ly" style="--i:4"></span><span class="p-ly" style="--i:5"></span><span class="p-ly" style="--i:6"></span><span class="p-ly" style="--i:7"></span><span class="p-ly" style="--i:8"></span><span class="p-ly" style="--i:9"></span><span class="p-ly" style="--i:10"></span><span class="p-ly" style="--i:11"></span><span class="p-ly" style="--i:12"></span><span class="p-beam" data-beam aria-hidden="true"></span>
+            <div class="p-screen">
+              <div class="p-status num" aria-hidden="true"><span data-time>12:52</span><span class="p-island"></span><span class="p-sig"><i></i><i></i><i></i><b></b></span></div>
+              <div class="p-screens" aria-hidden="true">
+                <section class="p-scr" data-s="0">
+                  <div class="p-bar"><span class="p-brand"><i></i>Sell your car</span><span class="p-tag">Example</span></div>
+                  <p class="p-h">List your car</p>
+                  <div class="p-field"><span>License plate · MA</span><b class="num"><span data-type></span><i class="p-caret"></i></b></div>
+                  <div class="p-look"><span class="p-spin"></span>Looking up your car…</div>
+                  <div class="p-found"><span class="p-ok"></span><span><b>2023 Toyota Camry SE</b>23,432 miles · found</span></div>
+                  <span class="p-cta">Continue</span>
+                </section>
+                <section class="p-scr" data-s="1">
+                  <div class="p-bar"><span class="p-brand"><i></i>Sell your car</span><span class="p-tag">Example</span></div>
+                  <p class="p-h">Set your minimum</p>
+                  <div class="p-prow num"><span>Dealer trade-in offer</span><b>$20,700</b></div>
+                  <div class="p-slider"><span class="p-trk"><i class="p-fill"></i><i class="p-knob"></i></span><span class="p-ends num"><span>$20,000</span><span>$24,000</span></span></div>
+                  <div class="p-minv"><span>Your minimum</span><b class="num" data-min>$20,700</b></div>
+                  <p class="p-note">Only you see it. Below it, your car doesn't sell.</p>
+                  <span class="p-cta">List my car</span>
+                </section>
+                <section class="p-scr" data-s="2">
+                  <div class="p-bar"><span class="p-brand"><i></i>Your auction</span><span class="p-tag">Example</span></div>
+                  <div class="p-car"><b>2023 Toyota Camry SE</b><span class="num">23,432 miles</span></div>
+                  <div class="p-clock num"><span class="p-dot">Live</span><span data-clock>1:00 PM ET</span></div>
+                  <div class="p-topbid"><span>Top bid</span><b class="p-roll num" data-top>—</b></div>
+                  <ol class="p-bids" data-bids></ol>
+                  <p class="p-wait" data-wait>Dealers are looking at your car…</p>
+                  <div class="p-met num"><span>Your minimum $22,500</span><b data-met>Not met yet</b></div>
+                </section>
+                <section class="p-scr" data-s="3">
+                  <div class="p-bar"><span class="p-brand"><i></i>Your auction</span><span class="p-tag">Example</span></div>
+                  <div class="p-win">
+                    <span class="p-big-ok"></span>
+                    <p class="p-h">Winning bid accepted</p>
+                    <b class="p-amt num p-roll" data-win>$23,800</b>
+                    <span class="p-up num"><b class="p-roll" data-gain>+$3,100</b> over trade-in</span>
+                    <p class="p-note">We've connected you with the winning dealer in Boston, MA. They pay you, then pick up the car.</p>
+                  </div>
+                </section>
+              </div>
+              <span class="p-glare" aria-hidden="true"></span>
+              <span class="p-home" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="p-wdg" data-wdg aria-hidden="true">
+            <div class="p-w-top"><span class="p-appi p-sm"></span><span class="p-w-t" data-wt>Auction live</span></div>
+            <div class="p-w-g"><b class="p-roll num" data-wg>+$0</b><span data-wl>over trade-in</span></div>
+            <div class="p-w-bars"><i></i><i></i><i></i><i></i></div>
+            <div class="p-w-s" data-ws>Local dealers notified</div>
+          </div>
+        </div>
+        <p id="stage-cap" class="vh">Example auction from beatthetrade.com, not a live auction. You list your car, set a private minimum, dealers bid from 1 to 5 PM ET, and the top bid above your minimum wins.</p>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3 · the lane: four stops, one direction -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="how__head">
+      <h2 id="how-h" class="t-l" data-lines>How it works</h2>
+      <a class="link" href="https://www.beatthetrade.com/how-it-works">See the full process <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="lane">
+      <span class="lane__rail" aria-hidden="true"></span>
+      <ol class="lane__stops">
+        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">01</span><h3>List your car</h3><p>Enter your license plate or VIN and a few quick details. Takes <span class="nw">5–10 minutes</span>.</p></li>
+        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">02</span><h3>Set your minimum</h3><p>The lowest price you'll accept. Only you see it. If bidding doesn't reach it, your car doesn't sell.</p></li>
+        <li><i class="lane__mark chev" aria-hidden="true"></i><span class="lane__n num">03</span><h3>Dealers bid live</h3><p>100+ verified local dealers compete in a 4-hour online auction.</p><span class="lane__chip">Weekdays · 1:00–5:00 PM ET</span></li>
+        <li><i class="lane__mark lane__mark--end chev" aria-hidden="true"></i><span class="lane__n num">04</span><h3>Top bid wins</h3><p>The highest bid above your minimum wins. The dealer pays you, then picks up the car.</p><span class="lane__chip">We connect you with the winning dealer</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4 · results: one featured auction, then the tape -->
+  <section class="res" id="results" aria-labelledby="rs-h">
+    <div class="res__head">
+      <h2 id="rs-h" class="t-l" data-lines>Recent auction results</h2>
+      <a class="link" href="https://www.beatthetrade.com/auctions/results">See all results <span aria-hidden="true">→</span></a>
+    </div>
+    <article class="feat">
+      <div class="feat__ph"><img src="assets/f250.webp" alt="2019 Ford F-250 Super Duty Lariat, seller's photo" width="800" height="600" loading="lazy"></div>
+      <div class="feat__body">
+        <p class="feat__up"><b class="num" data-lines>+$5,750</b><span>from bidding</span></p>
+        <h3>2019 Ford F-250 Super Duty Lariat</h3>
+        <dl class="feat__meta">
+          <div><dt class="vh">Mileage and town</dt><dd class="num">29,453 miles · North Reading, MA</dd></div>
+          <div><dt class="vh">Bids</dt><dd class="num">23 dealer bids</dd></div>
+          <div><dt class="vh">Date</dt><dd class="num">Aug 6, 2026</dd></div>
+        </dl>
+      </div>
+    </article>
+    <ul class="tape">
+      <li><img src="assets/v2/silverado-320.webp" alt="2024 Chevrolet Silverado 2500HD ZR2, seller's photo" width="320" height="240" loading="lazy"><div class="tape__car"><h3>2024 Chevrolet Silverado 2500HD ZR2</h3><span class="num">43,435 miles · Boston, MA</span></div><span class="tape__d num">4 dealer bids</span><span class="tape__d num">Oct 21, 2026</span><p class="tape__up"><b class="num">+$2,000</b><span>from bidding</span></p></li>
+      <li><img src="assets/v2/accord-320.webp" alt="2017 Honda Accord EX-L, seller's photo" width="320" height="240" loading="lazy"><div class="tape__car"><h3>2017 Honda Accord EX-L</h3><span class="num">74,733 miles · Charlton, MA</span></div><span class="tape__d num">5 dealer bids</span><span class="tape__d num">Oct 20, 2026</span><p class="tape__up"><b class="num">+$1,900</b><span>from bidding</span></p></li>
+      <li><img src="assets/v2/tacoma-320.webp" alt="2011 Toyota Tacoma, seller's photo" width="320" height="240" loading="lazy"><div class="tape__car"><h3>2011 Toyota Tacoma</h3><span class="num">187,035 miles · Andover, MA</span></div><span class="tape__d num">4 dealer bids</span><span class="tape__d num">Oct 13, 2026</span><p class="tape__up"><b class="num">+$300</b><span>from bidding</span></p></li>
+    </ul>
+    <p class="foot">Real results and sellers' photos from beatthetrade.com, read Oct 28, 2026 (plates blurred). "+$" is the rise from the first bid.</p>
+  </section>
+
+  <!-- 5 · one voice, two echoes -->
+  <section class="say" aria-labelledby="sl-h">
+    <h2 id="sl-h" class="t-m" data-lines>Sellers who skipped the trade-in.</h2>
+    <figure class="pull">
+      <blockquote><p data-lines>Dealer offered me $18k on trade. Final auction bid was $22,400. I watched the bids land in real time on my phone.</p></blockquote>
+      <figcaption><span class="who"><b>Marcus T.</b>2021 Tacoma TRD</span><span class="gain"><b class="num">+$4,400</b>over trade-in</span></figcaption>
+    </figure>
+    <ul class="minis">
+      <li><blockquote><p>Never set foot in a dealership. Three dealers were within $300 of each other by the end. Pickup was 24 hours later.</p></blockquote><p class="by"><span class="who"><b>Priya S.</b>2019 Civic Si</span><span class="gain"><b class="num">+$2,100</b>over trade-in</span></p></li>
+      <li><blockquote><p>Sold from my couch in pajamas. The dealer handled the title, the payment, and the pickup.</p></blockquote><p class="by"><span class="who"><b>Taylor R.</b>2021 Bronco Sport</span><span class="gain"><b class="num">+$2,400</b>over trade-in</span></p></li>
+    </ul>
+    <p class="foot">Testimonials as published on beatthetrade.com.</p>
+  </section>
+
+  <!-- 6 · questions -->
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="faq__l">
+      <h2 id="faq-h" class="t-l" data-lines>Questions sellers ask.</h2>
+      <a class="link" href="https://www.beatthetrade.com/faq">All FAQs <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="faq__r">
+      <details open><summary>Is it really free?</summary><p>Yes. Listing your car and running the auction cost you nothing. Dealers pay a fee only when they win.</p></details>
+      <details><summary>Who is bidding on my car?</summary><p>Verified, licensed local dealers. They're notified when your auction goes live.</p></details>
+      <details><summary>What if the bids come in low?</summary><p>You set a minimum. If bidding doesn't reach it, your car doesn't sell. You can change your minimum during the auction, and relist for free if it doesn't sell.</p></details>
+      <details><summary>What happens when my minimum is met?</summary><p>The highest bid at or above your minimum wins, and you complete the sale with that dealer. We connect you with them; they pay you, then pick up the car.</p></details>
+      <details><summary>How long does it take?</summary><p>Listing takes <span class="nw">5–10 minutes</span>. Auctions run weekdays from 1:00 to 5:00 PM ET, and a bid in the last minute adds a minute.</p></details>
+      <details><summary>Which cars can I list?</summary><p>Cars registered in Massachusetts or New Hampshire, built after 1992.</p></details>
+    </div>
+  </section>
+
+  <!-- 7 · the chevron window -->
+  <section class="close" aria-labelledby="cl-h">
+    <div class="close__copy">
+      <h2 id="cl-h" class="t-xl" data-lines>Don't take the first offer.<br> Let the dealers compete.</h2>
+      <p class="close__sub">It's free, takes <span class="nw">5–10 minutes</span>, and nothing sells below your minimum.</p>
+      <a class="cta" href="#v2-id" data-jump>Start my auction <span class="cta__arr" aria-hidden="true">→</span></a>
+    </div>
+    <figure class="close__win">
+      <div class="chevwin"><img src="assets/closing-1200.webp" srcset="assets/closing-1200.webp 1200w, assets/closing-2400.webp 2400w" sizes="(max-width:900px) 100vw, 52vw" alt="A red SUV on an empty coastal road at blue hour" width="2400" height="1340" loading="lazy"></div>
+      <figcaption class="disclose">Illustrative image</figcaption>
+    </figure>
+  </section>
+</main>
+
+<aside class="dealers" aria-label="For dealers">
+  <p><b>Are you a dealer?</b> Buy fresh inventory directly from local sellers.</p>
+  <a class="link" href="https://www.beatthetrade.com/dealers">Learn more for dealers <span aria-hidden="true">→</span></a>
+</aside>
+
+<div class="mbar" data-mbar hidden><a class="cta" href="#v2-id" data-jump>Start my auction <span class="cta__arr" aria-hidden="true">→</span></a><span>Free · <span class="nw">5–10 minutes</span></span></div>
+
+<footer class="foot-site">
+  <img src="assets/v2/wordmark-ink.png" alt="Beat The Trade" width="190" height="18">
+  <nav aria-label="Footer"><a href="https://www.beatthetrade.com/how-it-works">How it works</a><a href="https://www.beatthetrade.com/faq">FAQs</a><a href="https://www.beatthetrade.com/terms">Terms</a><a href="https://www.beatthetrade.com/privacy">Privacy</a><a href="https://www.beatthetrade.com/dealers">For dealers</a></nav>
+  <p class="note">Alternate home page concept, Oct 28, 2026. Scene images are generated illustrations. The example auction, results, sellers' photos and testimonials are from beatthetrade.com. "100+ local dealers" is from the client's brief; "$1,350 average over trade-in offers" is BTT's figure from its home page.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/index-v2.js"></script>
+</body>
+</html>

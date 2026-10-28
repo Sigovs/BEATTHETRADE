@@ -1,0 +1,413 @@
+<title>Beat The Trade Home</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@50..125,100..900&display=swap">
+<style>
+/* Concept: competition creates the price, and you set the line. Signature: "the line on the road":
+   the auction scale is drawn across the wet asphalt in front of the car, and bids travel along it past your minimum.
+   One committed look (dark dusk scene), deliberately single-theme. Display face Saira: its rounded-square geometry echoes the logo's letterforms. */
+:root{
+  color-scheme:dark;
+  --navy:#1C3E69; --green:#70BF4B; --orange:#F77B28; --white:#FFFFFF;
+  --night:#0A1626; --deck:#11233A; --rule:#2A4466; --mist:#A9B8CB; --dim:#7489A5; --ink:#0B1B30;
+  --scrim:rgba(10,22,38,.88);
+  --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 308 230'%3E%3Cpath d='M0 230 104 38C118 12 135 0 154 0s36 12 50 38L308 230H243L154 68 65 230Z'/%3E%3C/svg%3E");
+  --f:"Saira","Helvetica Neue",Arial,system-ui,sans-serif;
+  --t-xs:14px; --t-sm:16px; --t-md:18px; --t-lg:21px; --t-xl:clamp(24px,2.2vw,32px);
+  --t-2xl:clamp(36px,4.4vw,64px); --t-3xl:clamp(44px,6vw,100px);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:144px;
+  --gutter:clamp(16px,6vw,120px); --wrap:1320px;
+  --r1:6px; --r2:12px; --pill:999px;
+  --d-fast:160ms; --d-med:320ms; --d-travel:760ms;
+  --ease-out:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--white);font-family:var(--f);font-size:var(--t-md);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+picture{display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--white);outline-offset:3px;border-radius:var(--r1)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.disclose.d-hero{top:96px;bottom:auto}
+.disclose{position:absolute;right:max(var(--s4),env(safe-area-inset-right,0px));bottom:var(--s3);pointer-events:none;font-size:var(--t-xs);color:var(--mist);opacity:.8;margin:0;z-index:2}
+
+/* ── header (sits on the scene) ── */
+.site{position:absolute;inset:0 0 auto;z-index:5}
+.site .wrap{display:flex;align-items:center;gap:var(--s6);padding-block:var(--s5)}
+.site .logo img{height:22px;width:auto}
+.site nav{display:flex;gap:var(--s5);margin-left:auto;font-size:var(--t-sm);font-weight:500}
+.site nav a{text-decoration:none;padding-block:var(--s2);border-bottom:2px solid transparent;transition:border-color var(--d-fast) var(--ease-out)}
+.site nav a:hover{border-color:var(--green)}
+.signin{white-space:nowrap;font-size:var(--t-sm);font-weight:600;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;padding:0 var(--s5);border:1px solid rgba(255,255,255,.55);border-radius:var(--pill);transition:border-color var(--d-fast) var(--ease-out),background var(--d-fast) var(--ease-out)}
+.signin:hover{border-color:var(--white);background:rgba(255,255,255,.08)}
+@media (max-width:900px){.site nav{display:none}.signin{margin-left:auto}}
+
+/* ── type ── */
+.eyebrow{margin:0;font-size:var(--t-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.display{margin:0;font-weight:800;font-stretch:112%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;text-wrap:balance}
+.display .g{color:var(--green)}
+
+/* ── entry form ── */
+.entry{display:grid;gap:var(--s3);max-width:600px}
+.modes{display:flex;gap:var(--s1);background:rgba(10,22,38,.6);border:1px solid var(--rule);border-radius:var(--pill);padding:var(--s1);width:max-content}
+.modes button{font:inherit;font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;min-height:40px;padding:0 var(--s4);border:0;border-radius:var(--pill);background:transparent;color:var(--mist);cursor:pointer;transition:color var(--d-fast) var(--ease-out),background var(--d-fast) var(--ease-out)}
+.modes button:hover{color:var(--white)}
+.modes button[aria-pressed="true"]{background:var(--white);color:var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 104px auto;gap:var(--s2)}
+.entry input,.entry select{font:inherit;font-size:var(--t-md);min-height:60px;border-radius:var(--r1);border:1px solid var(--rule);background:rgba(10,22,38,.82);color:var(--white);padding:0 var(--s4);min-width:0;transition:border-color var(--d-fast) var(--ease-out)}
+.entry input{font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.entry input::placeholder{color:var(--dim);font-weight:500;letter-spacing:.02em;text-transform:none}
+.entry input:hover,.entry select:hover{border-color:var(--mist)}
+.entry input[aria-invalid="true"]{border-color:var(--orange)}
+.go{font:inherit;font-size:var(--t-sm);font-weight:800;letter-spacing:.06em;text-transform:uppercase;min-height:60px;padding:0 var(--s5);border:0;border-radius:var(--r1);background:var(--orange);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);white-space:nowrap;transition:transform var(--d-fast) var(--ease-out),filter var(--d-fast) var(--ease-out)}
+.go:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.go:active{transform:none}
+.go .arr{transition:transform var(--d-fast) var(--ease-out)}
+.go:hover .arr{transform:translateX(3px)}
+.msg{font-size:var(--t-xs);min-height:21px;margin:0;color:var(--mist)}
+.msg.err{color:var(--orange)} .msg.ok{color:var(--green)}
+.assure{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);font-size:var(--t-sm);color:var(--mist)}
+.assure li{display:flex;align-items:center;gap:var(--s2)}
+.assure li::before{content:"";width:12px;height:9px;background:var(--green);-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat}
+@media (max-width:560px){.row{grid-template-columns:minmax(0,1fr) 104px}.row .go{grid-column:1/-1}}
+.hero .entry,.hero .lede{max-width:560px}
+@media (max-width:1180px),(max-height:860px){
+  .hero h1{font-size:clamp(44px,5.2vw,100px)}
+  .hero .inner{padding-top:100px}
+  .hero .copy{gap:var(--s4)}
+  .road{margin-top:var(--s5);padding-top:var(--s7)}
+  .road .cap{margin-top:84px}
+}
+
+/* ═════ HERO: the scene ═════ */
+.hero{position:relative;min-height:clamp(720px,100svh,1000px);display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
+.hero picture img{object-fit:cover;object-position:68% 55%}
+/* legibility fixed at the background layer: left falloff + top for the header + bottom for the road line */
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,var(--scrim) 0%,rgba(10,22,38,.72) 30%,rgba(10,22,38,.18) 56%,rgba(10,22,38,0) 70%),
+  linear-gradient(180deg,rgba(10,22,38,.7) 0,rgba(10,22,38,0) 160px),
+  linear-gradient(0deg,rgba(10,22,38,.92) 0,rgba(10,22,38,.4) 190px,rgba(10,22,38,0) 330px)}
+.hero .inner{position:relative;z-index:3;width:100%;padding-top:112px}
+.hero .copy{max-width:820px;display:grid;gap:var(--s5)}
+.hero .lead{display:grid;gap:var(--s5)}
+.hero h1{font-size:var(--t-3xl)}
+.hero .lede{margin:0;font-size:var(--t-lg);line-height:1.4;color:var(--mist);max-width:30ch}
+.hero .lede b{color:var(--white);font-weight:600}
+
+/* the line on the road */
+.road{position:relative;margin:var(--s8) 0 0;padding:var(--s8) 0 var(--s5)}
+.road .cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2) var(--s4);align-items:baseline;font-size:var(--t-xs);color:var(--mist);margin-top:96px}
+.road .cap b{color:var(--white);font-weight:600}
+.road .tag{font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;border-radius:var(--r1);padding:1px var(--s2)}
+.lane{position:relative;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 28px,transparent 28px 46px)}
+.lane .won{position:absolute;top:-1px;height:4px;left:var(--min);width:calc(var(--top) - var(--min));background:var(--green);border-radius:var(--pill);transform-origin:left center}
+.mk{position:absolute;top:0;left:var(--x);transform:translateX(-50%)}
+.mk::before{content:"";position:absolute;left:-1px;width:2px}
+.mk.tr::before{top:-10px;height:22px;background:var(--mist)}
+.mk.mn::before{top:-30px;height:38px;background:var(--green)}
+.mk .lb{position:absolute;white-space:nowrap;font-size:var(--t-xs);line-height:1.25;transform:translateX(-50%)}
+.mk.tr .lb{top:18px;color:var(--mist)}
+.mk.mn .lb{bottom:34px;color:var(--green);font-weight:700}
+.bid{position:absolute;top:0;left:var(--x);transform:translateX(-50%)}
+.bid i{position:absolute;left:-11px;top:-19px;width:22px;height:17px;background:var(--white);-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat}
+.bid.over i{background:var(--green)}
+.bid .lb{position:absolute;white-space:nowrap;font-size:var(--t-xs);line-height:1.25;transform:translateX(-50%);color:var(--mist);text-align:center}
+.bid .lb b{display:block;color:var(--white);font-size:var(--t-sm);font-weight:700}
+.bid.r1 .lb{top:12px} .bid.r2 .lb{top:52px}
+.bid.top .lb{bottom:22px;top:auto}
+.bid.top .lb b{font-size:var(--t-xl);font-weight:800;color:var(--green);line-height:1.1}
+.bid.top .lb{color:var(--white)}
+.gain{position:absolute;right:0;top:calc(var(--s7) + 70px);text-align:right;font-size:var(--t-xs);color:var(--mist)}
+.gain b{display:block;font-size:var(--t-2xl);font-weight:800;font-stretch:112%;color:var(--green);line-height:1}
+@media (prefers-reduced-motion:no-preference){
+  .play .bid{animation:travel var(--d-travel) var(--ease-out) both;animation-delay:calc(var(--i) * 520ms + 300ms)}
+  .play .lane .won{animation:grow 600ms var(--ease-out) both;animation-delay:2.5s}
+  .play .bid.top .lb{animation:riseC 600ms var(--ease-out) both;animation-delay:2.2s}
+}
+@keyframes travel{from{left:var(--from);opacity:.0}12%{opacity:1}to{left:var(--x);opacity:1}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes riseC{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* mobile hero: authored separately — the scene on top, the form below it, a short road */
+.road-m{display:none}
+@media (max-width:820px){
+  .hero{min-height:0;display:block}
+  .hero picture{position:relative;height:auto;aspect-ratio:4/5;max-height:78svh}
+  .hero picture img{position:absolute;object-position:50% 70%}
+  .hero::before{background:linear-gradient(180deg,rgba(10,22,38,.8) 0,rgba(10,22,38,.3) 42%,rgba(10,22,38,0) 58%,rgba(10,22,38,.95) 100%);bottom:auto;aspect-ratio:4/5;max-height:78svh}
+  .hero .inner{position:static;padding-top:var(--s5)}
+  .hero .lead{position:absolute;z-index:3;top:88px;left:0;right:0;display:grid;gap:var(--s3);padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+  .hero h1{font-size:clamp(40px,11vw,64px)}
+  .hero .copy{gap:var(--s4)}
+  .road{display:none}
+  .road-m{display:grid;gap:var(--s2);margin:var(--s6) 0 var(--s7);padding:var(--s4) 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:var(--t-xs);color:var(--mist)}
+  .road-m .ln{display:flex;justify-content:space-between;gap:var(--s3)}
+  .road-m .ln b{color:var(--white);font-size:var(--t-sm)}
+  .road-m .ln.mn b{color:var(--green)}
+  .road-m .ln.top b{color:var(--green);font-size:var(--t-lg)}
+  .hero .disclose.d-hero{top:calc(min(125vw,78svh) - 32px)}
+}
+
+/* ═════ HOW: the market shows you ═════ */
+.how .wrap{padding-block:var(--s10) var(--s9)}
+.how .line{font-size:var(--t-2xl);max-width:17ch}
+.how .line em{font-style:normal;color:var(--green)}
+.steps{list-style:none;margin:var(--s8) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s6)}
+.steps li{border-top:2px solid var(--rule);padding-top:var(--s5);display:grid;gap:var(--s2);align-content:start}
+.steps li:nth-child(3){border-top-color:var(--green)}
+.steps .n{font-size:var(--t-xs);font-weight:700;letter-spacing:.12em;color:var(--dim)}
+.steps h3{margin:0;font-size:var(--t-lg);font-weight:800;font-stretch:108%;line-height:1.15;text-transform:uppercase}
+.steps p{margin:0;color:var(--mist);font-size:var(--t-sm);max-width:30ch}
+.steps .clock{color:var(--green);font-weight:700}
+@media (max-width:1024px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s7)}}
+@media (max-width:560px){.steps{grid-template-columns:minmax(0,1fr)}.how .wrap{padding-block:var(--s9) var(--s8)}}
+
+/* ═════ RESERVE: your car, your minimum ═════ */
+.reserve{position:relative;isolation:isolate;min-height:clamp(560px,42vw,760px);display:grid;align-items:center;overflow:hidden}
+.reserve picture,.reserve picture img{position:absolute;inset:0;width:100%;height:100%}
+.reserve picture img{object-fit:cover;object-position:20% 60%}
+.reserve::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,var(--scrim) 0%,rgba(10,22,38,.75) 34%,rgba(10,22,38,0) 62%)}
+.reserve .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);padding-block:var(--s9)}
+.reserve .txt{grid-column:2;display:grid;gap:var(--s5)}
+.reserve h2{font-size:var(--t-2xl)}
+.reserve .say{margin:0;font-size:var(--t-lg);line-height:1.4;max-width:30ch}
+.facts{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--rule)}
+.facts li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:var(--s3);padding-block:var(--s4);border-bottom:1px solid var(--rule);font-size:var(--t-sm);color:var(--mist)}
+.facts li::before{content:"";width:14px;height:11px;margin-top:6px;background:var(--green);-webkit-mask:var(--chev) center/contain no-repeat;mask:var(--chev) center/contain no-repeat}
+.facts b{color:var(--white);font-weight:600}
+@media (max-width:820px){
+  .reserve{display:block;min-height:0}
+  .reserve picture{position:relative;height:auto;aspect-ratio:16/10}
+  .reserve picture img{object-position:30% 60%}
+  .reserve::before{background:linear-gradient(0deg,var(--night) 0,rgba(10,22,38,0) 40%);aspect-ratio:16/10;bottom:auto}
+  .reserve .wrap{grid-template-columns:minmax(0,1fr);padding-block:var(--s5) var(--s8)}
+  .reserve .txt{grid-column:1}
+  .reserve .disclose{top:var(--s3);bottom:auto}
+}
+
+/* ═════ RESULTS: real bidding wars ═════ */
+.results .wrap{padding-block:var(--s9)}
+.results .head{display:flex;justify-content:space-between;align-items:end;gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s6)}
+.results h2{font-size:var(--t-2xl)}
+.results .all{font-size:var(--t-sm);font-weight:600;text-decoration:none;border-bottom:2px solid var(--green);padding-bottom:2px;transition:color var(--d-fast) var(--ease-out)}
+.results .all:hover{color:var(--green)}
+.tape{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.tape li{display:grid;grid-template-columns:120px minmax(0,2.4fr) minmax(0,1fr) 90px 170px;gap:var(--s4);align-items:baseline;padding-block:var(--s5);border-bottom:1px solid var(--rule)}
+.tape .d,.tape .t,.tape .b{font-size:var(--t-sm);color:var(--mist)}
+.tape .c{font-size:var(--t-lg);font-weight:700;line-height:1.25}
+.tape .c span{font-weight:500;color:var(--dim);font-size:var(--t-sm);margin-left:var(--s2);white-space:nowrap}
+.tape .b{text-align:right}
+.tape .g{font-size:var(--t-xl);font-weight:800;text-align:right;color:var(--green)}
+.results .towns{margin:var(--s6) 0 0;font-size:var(--t-md);color:var(--mist);max-width:60ch}
+.results .towns b{color:var(--white);font-weight:600}
+.foot{font-size:var(--t-xs);color:var(--dim);margin:var(--s4) 0 0}
+@media (max-width:760px){
+  .tape li{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"d g" "c c" "t b";row-gap:var(--s1)}
+  .tape .d{grid-area:d}.tape .c{grid-area:c}.tape .t{grid-area:t}.tape .b{grid-area:b}.tape .g{grid-area:g}
+}
+
+/* ═════ CLOSE: don't take the first offer ═════ */
+.close{position:relative;isolation:isolate;min-height:clamp(620px,56vw,900px);display:grid;align-items:start;overflow:hidden}
+.close picture,.close picture img{position:absolute;inset:0;width:100%;height:100%}
+.close picture img{object-fit:cover;object-position:60% 60%}
+.close::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,22,38,.78) 0,rgba(10,22,38,.35) 45%,rgba(10,22,38,0) 70%)}
+.close .wrap{position:relative;z-index:2;width:100%;padding-block:var(--s9) var(--s9)}
+.close .copy{max-width:640px;display:grid;gap:var(--s5)}
+.close h2{font-size:clamp(40px,5.2vw,88px)}
+.close .cta{justify-self:start;text-decoration:none}
+.close .lede{margin:0;font-size:var(--t-lg);color:var(--white);max-width:32ch}
+@media (max-width:820px){
+  .close{display:block;min-height:0}
+  .close picture{position:relative;height:auto;aspect-ratio:16/11;order:2}
+  .close::before{display:none}
+  .close .wrap{padding-block:var(--s8) var(--s6)}
+  .close .disclose{top:calc(68.75vw - 30px);bottom:auto}
+}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--rule);font-size:var(--t-sm);color:var(--mist)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:var(--s4) var(--s6);align-items:center;padding-block:var(--s6)}
+footer img{height:18px;width:auto}
+footer nav{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
+footer nav a{text-decoration:none}
+footer nav a:hover{color:var(--white);text-decoration:underline}
+footer .note{flex-basis:100%;margin:0;font-size:var(--t-xs);color:var(--dim)}
+</style>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="https://www.beatthetrade.com/"><img src="{{WORDMARK}}" alt="Beat The Trade" width="233" height="22"></a>
+    <nav aria-label="Main"><a href="https://www.beatthetrade.com/how-it-works">How it works</a><a href="https://www.beatthetrade.com/auctions/results">Results</a><a href="https://www.beatthetrade.com/dealers">For dealers</a></nav>
+    <a class="signin" href="https://www.beatthetrade.com/">Sign in</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="h1">
+    <picture>
+      <source media="(max-width:820px)" srcset="assets/hero-m-1080.webp">
+      <source srcset="assets/hero-1440.webp 1440w, assets/hero-2400.webp 2400w" sizes="100vw">
+      <img src="assets/hero-1440.webp" alt="A red SUV in a driveway at dusk, headlights on, on a quiet New England street after rain" width="1440" height="804" fetchpriority="high">
+    </picture>
+    <p class="disclose d-hero">Illustrative image</p>
+    <div class="inner">
+      <div class="wrap">
+        <div class="copy">
+          <div class="lead">
+            <p class="eyebrow">Sell your car · MA &amp; NH</p>
+            <h1 id="h1" class="display">Start a<br> <span class="g">bidding war.</span></h1>
+          </div>
+          <p class="lede">List once. <b>100+ local dealers</b> compete for your car in a live 4-hour auction.</p>
+          <form class="entry" novalidate data-form>
+            <div class="modes" role="group" aria-label="Look up by">
+              <button type="button" aria-pressed="true" data-mode="plate">License plate</button>
+              <button type="button" aria-pressed="false" data-mode="vin">VIN</button>
+            </div>
+            <div class="row">
+              <label class="vh" for="h-id">License plate</label>
+              <input id="h-id" name="id" autocomplete="off" placeholder="Enter your plate" maxlength="8">
+              <label class="vh" for="h-state">State</label>
+              <select id="h-state" name="state"><option value="MA">MA</option><option value="NH">NH</option><option value="other">Other</option></select>
+              <button class="go" type="submit">Start my auction <span class="arr" aria-hidden="true">→</span></button>
+            </div>
+            <p class="msg" role="status" aria-live="polite"></p>
+          </form>
+          <ul class="assure"><li>Free to list</li><li>About 10 minutes</li><li>Nothing sells below your minimum</li></ul>
+        </div>
+
+        <!-- the line on the road: one scale, $20,000 → $24,200 -->
+        <figure class="road" data-road aria-labelledby="road-cap" style="--min:59.52%;--top:90.48%">
+          <div class="lane">
+            <span class="won" aria-hidden="true"></span>
+            <span class="mk tr" style="--x:16.67%"><span class="lb num">Trade-in offer $20,700</span></span>
+            <span class="mk mn" style="--x:59.52%"><span class="lb num">Your minimum $22,500</span></span>
+            <span class="bid r1" style="--x:36.9%;--from:16.67%;--i:0"><i></i><span class="lb num"><b>$21,550</b>Danvers, MA</span></span>
+            <span class="bid r2" style="--x:57.14%;--from:16.67%;--i:1"><i></i><span class="lb num"><b>$22,400</b>Lowell, MA</span></span>
+            <span class="bid over r1" style="--x:61.9%;--from:16.67%;--i:2"><i></i><span class="lb num"><b>$22,600</b>Nashua, NH</span></span>
+            <span class="bid over top" style="--x:90.48%;--from:16.67%;--i:3"><i></i><span class="lb num"><b>$23,800</b>Boston, MA · +$3,100 over trade-in</span></span>
+          </div>
+          <figcaption class="cap" id="road-cap"><span><span class="tag">Example</span>&nbsp; 2023 Toyota Camry SE, 23,432 mi. Bids crossing the owner's line.</span><span>Not a real listing or a forecast · 16 bids, 4 shown</span></figcaption>
+        </figure>
+        <div class="road-m num" aria-label="Example auction: 2023 Toyota Camry SE">
+          <div class="ln"><span>Example · 2023 Camry SE · trade-in offer</span><b>$20,700</b></div>
+          <div class="ln mn"><span>Your minimum</span><b>$22,500</b></div>
+          <div class="ln top"><span>Top bid, Boston dealer · 16 bids</span><b>$23,800</b></div>
+          <div class="ln"><span>Not a real listing or a forecast</span><span>+$3,100 over trade-in</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h" class="display line">You're not asking us what your car is worth. <em>You're letting the market show you.</em></h2>
+      <ol class="steps">
+        <li><span class="n">01</span><h3>List it</h3><p>Plate or VIN, photos, and the trade-in offer you already have. 5–10 minutes.</p></li>
+        <li><span class="n">02</span><h3>Set your minimum</h3><p>Only you see it. You can change it any time, even while the auction runs.</p></li>
+        <li><span class="n">03</span><h3>Dealers bid</h3><p><span class="clock num">Weekdays, 1:00–5:00 PM ET.</span> A bid in the last minute adds a minute.</p></li>
+        <li><span class="n">04</span><h3>The top bid above your minimum wins</h3><p>We connect you with the winning dealer. They pay, then pick up.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="reserve" aria-labelledby="res-h">
+    <picture>
+      <source media="(max-width:820px)" srcset="assets/reserve-1200.webp">
+      <img src="assets/reserve-2400.webp" alt="Rear of a red SUV at night on a wet street, taillights glowing" width="2400" height="1018" loading="lazy">
+    </picture>
+    <p class="disclose">Illustrative image</p>
+    <div class="wrap">
+      <div class="txt">
+        <p class="eyebrow">You set the line</p>
+        <h2 id="res-h" class="display">Your car. <span class="g">Your minimum.</span></h2>
+        <p class="say">Below your minimum, your car doesn't sell and it costs you nothing. Above it, the top bid wins.</p>
+        <ul class="facts">
+          <li><span><b>Private.</b> Dealers never see your minimum.</span></li>
+          <li><span><b>Yours to change.</b> Raise or lower it while the auction runs.</span></li>
+          <li><span><b>Checked.</b> BTT checks it against the wholesale range so dealers can compete.</span></li>
+          <li><span><b>Free to relist.</b> If it doesn't sell, it can run again the next weekday.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" aria-labelledby="rs-h">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="rs-h" class="display">Recent <span class="g">bidding wars.</span></h2>
+        <a class="all" href="https://www.beatthetrade.com/auctions/results">All results</a>
+      </div>
+      <ol class="tape">
+        <li><span class="d num">Oct 21, 2026</span><span class="c">2024 Chevrolet Silverado 2500HD ZR2<span class="num">43,435 mi</span></span><span class="t">Boston, MA</span><span class="b num">4 bids</span><span class="g num">+$2,000</span></li>
+        <li><span class="d num">Oct 20, 2026</span><span class="c">2017 Honda Accord EX-L<span class="num">74,733 mi</span></span><span class="t">Charlton, MA</span><span class="b num">5 bids</span><span class="g num">+$1,900</span></li>
+        <li><span class="d num">Oct 13, 2026</span><span class="c">2011 Toyota Tacoma<span class="num">187,035 mi</span></span><span class="t">Andover, MA</span><span class="b num">4 bids</span><span class="g num">+$300</span></li>
+        <li><span class="d num">Aug 6, 2026</span><span class="c">2019 Ford F-250 Super Duty Lariat<span class="num">29,453 mi</span></span><span class="t">North Reading, MA</span><span class="b num">23 bids</span><span class="g num">+$5,750</span></li>
+      </ol>
+      <p class="towns">The Accord was listed from Charlton, MA. Its bids came from dealers in <b>Merrimack, Londonderry and Derry, NH</b>, 56–61 miles away.</p>
+      <p class="foot">From beatthetrade.com/auctions/results, read Oct 28, 2026. "+$" is the rise from the first bid. Only auctions that met the seller's minimum are shown.</p>
+    </div>
+  </section>
+
+  <section class="close" aria-labelledby="cl-h">
+    <picture>
+      <source media="(max-width:820px)" srcset="assets/closing-1200.webp">
+      <img src="assets/closing-2400.webp" alt="A red SUV on an empty coastal road at blue hour" width="2400" height="1340" loading="lazy">
+    </picture>
+    <p class="disclose">Illustrative image</p>
+    <div class="wrap">
+      <div class="copy">
+        <h2 id="cl-h" class="display">Don't take the<br> <span class="g">first offer.</span></h2>
+        <p class="lede">Let local dealers compete for your car. Listing is free and takes about 10 minutes.</p>
+        <a class="go cta" href="#h-id" data-jump>Start my auction <span class="arr" aria-hidden="true">→</span></a>
+        <ul class="assure"><li>Free to list</li><li>About 10 minutes</li><li>Nothing sells below your minimum</li></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{WORDMARK}}" alt="Beat The Trade" width="190" height="18">
+    <nav aria-label="Footer"><a href="https://www.beatthetrade.com/how-it-works">How it works</a><a href="https://www.beatthetrade.com/faq">FAQs</a><a href="https://www.beatthetrade.com/terms">Terms</a><a href="https://www.beatthetrade.com/privacy">Privacy</a><a href="https://www.beatthetrade.com/dealers">For dealers</a></nav>
+    <p class="note">Alternate home page concept, 28 Oct 2026. Car images are generated illustrations, not listings or sellers' cars. "100+ local dealers" is from the client's brief; the auction schedule, reserve rules and results are from beatthetrade.com.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-form]').forEach(function(f){
+    var input=f.querySelector('input[name=id]'), state=f.querySelector('select'), msg=f.querySelector('.msg'),
+        lab=f.querySelector('label[for="'+input.id+'"]'), mode='plate';
+    function clear(){msg.textContent='';msg.className='msg';input.removeAttribute('aria-invalid')}
+    f.querySelectorAll('[data-mode]').forEach(function(b){b.addEventListener('click',function(){
+      mode=b.getAttribute('data-mode');
+      f.querySelectorAll('[data-mode]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+      input.maxLength=mode==='vin'?17:8; input.placeholder=mode==='vin'?'17-character VIN':'Enter your plate';
+      lab.textContent=mode==='vin'?'VIN':'License plate'; clear(); input.focus();
+    })});
+    input.addEventListener('input',clear);
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=input.value.replace(/\s+/g,'').toUpperCase();
+      function err(t){msg.textContent=t;msg.className='msg err';input.setAttribute('aria-invalid','true');input.focus()}
+      if(!v) return err(mode==='vin'?'Enter your VIN to start.':'Enter your plate to start.');
+      if(mode==='vin'&&!/^[A-HJ-NPR-Z0-9]{17}$/.test(v)) return err('A VIN has 17 letters and numbers (no I, O or Q). Check it and try again.');
+      if(mode==='plate'&&!/^[A-Z0-9]{2,8}$/.test(v)) return err('Plates have 2–8 letters and numbers.');
+      if(state.value==='other') return err('Right now we accept cars registered in MA and NH.');
+      msg.className='msg ok';
+      msg.innerHTML='Prototype: on the live site this opens the listing form with '+(mode==='vin'?'VIN ':'plate ')+v+'. <a href="https://www.beatthetrade.com/listings/new" target="_blank" rel="noopener">Open the real form</a>';
+    });
+  });
+  document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(e){var t=document.getElementById('h-id');if(!t)return;e.preventDefault();t.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});setTimeout(function(){t.focus({preventScroll:true})},400)})});
+  /* the road plays once when it is on screen; it rests on its final, complete state */
+  var road=document.querySelector('[data-road]');
+  if(road && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){road.classList.add('play');io.disconnect()}})},{threshold:.4});
+    io.observe(road);
+  }
+})();
+</script>

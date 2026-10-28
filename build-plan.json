@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "savedAt": "2026-10-28T06:47:50.241Z",
+  "brief": {
+    "task": "redesign",
+    "sources": [
+      "request",
+      "site",
+      "brandbook"
+    ],
+    "requirements": [
+      "leads"
+    ],
+    "gaps": [
+      "nothing"
+    ],
+    "facts": {
+      "file": "BRIEF.md",
+      "filled": 14,
+      "total": 14,
+      "empty": []
+    }
+  },
+  "concept": {
+    "mode": "explore",
+    "sources": [
+      "vault",
+      "genjutsu"
+    ],
+    "moodboard": "none",
+    "approval": {
+      "status": "revise",
+      "identity": "46f92cf4da105452",
+      "idea": "Competition creates the price, and you set the line.",
+      "board": "C:\\____WORK\\BEAT THE TRADE\\explore\\btt-v2\\index.html",
+      "contract": null,
+      "closed": [
+        "73e6af8fdc2ea2b8",
+        "46f92cf4da105452"
+      ]
+    }
+  },
+  "reasons": {},
+  "notes": [
+    "Sources: client one-line brief + live site + an ad-creative brief (FB/IG) supplied by Alex — Alex rates it weak: take colours and claim rules, do not treat its directives as calls to action.",
+    "Concept search: Alex also asked to look at Awwards.",
+    "Concept board v1 (A/B/C) rejected by Alex 2026-10-28, no reason given yet.",
+    "v2 (btt-v2/index.html) → revise, 2026-10-28."
+  ],
+  "rule": "Choose the lightest stack that can faithfully execute the approved concept. Tools may execute the idea. Tools may not become the idea."
+}

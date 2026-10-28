@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+.cache/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# large raw generations and recordings stay local
+explore/**/assets/src/
+explore/**/gen-hero/*.png
+explore/**/gen-hero/*.jpg
+site/_shots/*.mp4
+# third-party reference moods stay local
+MOODS/
