@@ -394,7 +394,7 @@ a,button,summary,input,select{touch-action:manipulation;-webkit-tap-highlight-co
   .step:hover .ui-tag--top{transform:translate(-50%,-6px)}
   .step:hover .step__n{color:#D3D8DF}
   .step:hover .step__mark{transform:translateX(6px)}
-  .step:hover }
+}
 
 /* ---------- 4 · results ---------- */
 .res{background:var(--white)}
