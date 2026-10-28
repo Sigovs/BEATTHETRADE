@@ -387,7 +387,7 @@ a,button,summary,input,select{touch-action:manipulation;-webkit-tap-highlight-co
 .step p{margin-top:var(--s3);font-size:var(--t-md);color:var(--ink-2);max-width:32ch}
 .step__chip{margin-top:var(--s5);padding-top:var(--s2);border-top:1.5px solid var(--green);font-size:var(--t-xs);font-weight:700;color:var(--green-deep)}
 /* hover: the photo leans in, the product moment lifts, the number wakes up, the marker steps forward */
-@media (hover:hover){
+@media (any-hover:hover){
   .step:hover .step__ph img{transform:scale(1.06)}
   .step:hover .ui{transform:translateY(-6px);box-shadow:0 4cqi 10cqi rgba(11,27,48,.22)}
   .step:hover .ui-tag{transform:translateY(-5px)}
