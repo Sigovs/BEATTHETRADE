@@ -56,6 +56,18 @@
     mio.observe(heroForm); if(closeSec) mio.observe(closeSec);
   }
 
+  /* ---------- 3b · header: stuck on scroll; on phones it hides going down and returns going up ---------- */
+  var bar=$('.bar');
+  if(bar){
+    var lastY=window.scrollY, ticking=false, narrow=matchMedia('(max-width:760px)');
+    var onScroll=function(){ var y=window.scrollY; bar.classList.toggle('is-stuck',y>8);
+      if(narrow.matches&&y>160&&y>lastY+4) bar.classList.add('is-hidden'); else if(!narrow.matches||y<lastY-4||y<=160) bar.classList.remove('is-hidden');
+      lastY=y; ticking=false };
+    window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(onScroll) } },{passive:true});
+    bar.addEventListener('focusin',function(){ bar.classList.remove('is-hidden') });
+    onScroll();
+  }
+
   /* ---------- 4 · the phone: the example auction in four chapters, in step with the text ----------
      0 list the car and set the minimum · 1 the auction opens, two bids · 2 $22,600 meets the reserve · 3 $23,800 wins.
      Wide screens: each text chapter plays its step as it arrives (Ph.go). Phones: the steps play in a loop while on screen.

@@ -23,7 +23,7 @@
 
 /* ---------- base ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:24px;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:110px;overflow-x:clip}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:var(--t-md);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
 picture{display:block}
@@ -80,7 +80,12 @@ a,button,summary,input,select{touch-action:manipulation;-webkit-tap-highlight-co
 .bar__signin:hover{background:var(--ink);color:var(--white)}
 
 /* ---------- 1 · hero: one field, the chevron as a window, the car in front of it ---------- */
-.bar{position:relative;z-index:3}
+/* the header stays: clear over the hero, frosted paper once the page moves; on phones it steps aside while scrolling down */
+.bar{position:sticky;top:0;z-index:40;transition:transform var(--d-med) var(--ease)}
+.bar::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);box-shadow:0 1px 0 var(--lrule);opacity:0;transition:opacity var(--d-med) var(--ease)}
+.bar.is-stuck::before{opacity:1}
+.bar.is-hidden{transform:translateY(-100%)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .hero{--hh:max(100svh,720px);--ah:calc(var(--hh) * .95);--aw:calc(var(--ah) * 1.339);--ax:calc(60vw - var(--aw) / 2);--cw:clamp(420px,37.75vw,820px);--cb:clamp(40px,6vw,120px);--cr:2.75vw;position:relative;background:var(--paper);overflow-x:clip}
 .hero__grid{position:relative;max-width:var(--max);margin:0 auto;padding:clamp(24px,4vh,48px) var(--g) clamp(32px,5vh,56px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--s5);row-gap:clamp(24px,4vh,44px);align-items:start;min-height:calc(var(--hh) - 92px)}
 .hero__grid>*:not(.hero__visual){position:relative;z-index:2}
