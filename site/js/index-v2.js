@@ -288,8 +288,10 @@
     /* the last step holds: the market stops on "Sold", the next section slides up over it,
        and the text and the phone rise out to nothing as it covers them */
     if(wide&&Ph){
-      ScrollTrigger.create({trigger:'.mk',start:'bottom bottom',end:'+=100%',pin:true,pinSpacing:false});
-      gsap.to('.mk__grid',{yPercent:-6,opacity:0,ease:'none',scrollTrigger:{trigger:'.mk',start:'bottom bottom',end:'+=85%',scrub:.6}});
+      /* held exactly as long as the sheet takes to slide in: How it works is shorter than the screen, so a longer hold would cover Results */
+      var sheet=function(){ return '+='+$('.how').offsetHeight };
+      ScrollTrigger.create({trigger:'.mk',start:'bottom bottom',end:sheet,pin:true,pinSpacing:false,invalidateOnRefresh:true});
+      gsap.to('.mk__grid',{yPercent:-6,opacity:0,ease:'none',scrollTrigger:{trigger:'.mk',start:'bottom bottom',end:sheet,scrub:.6,invalidateOnRefresh:true}});
     }
     /* the phone rises into the stage once */
     once('.stage','top 85%').from('.p-stage',{y:56,opacity:0,duration:1.4,ease:'power3.out',clearProps:'transform,opacity'});
