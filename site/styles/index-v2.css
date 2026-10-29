@@ -486,7 +486,7 @@ a,button,summary,input,select{touch-action:manipulation;-webkit-tap-highlight-co
 .foot-site nav{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
 .foot-site nav a{text-decoration:none}
 .foot-site nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:.2em}
-.foot-site .note{flex-basis:100%;font-size:var(--t-xs);max-width:110ch}
+.foot-site .note{flex-basis:100%;font-size:var(--t-xs);max-width:110ch;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5)}
 .mbar{display:none}
 
 /* ---------- responsive ---------- */
